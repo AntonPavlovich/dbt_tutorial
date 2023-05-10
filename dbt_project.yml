@@ -31,6 +31,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-  jeffle_shop:
-    users:
-      +materialized: view
+  jaffle_shop:
+    +materialized: view
+    marts:
+      core:
+        +materialized: 'table'
+    staging:
+      +materialized: 'view'
