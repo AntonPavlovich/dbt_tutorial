@@ -29,3 +29,20 @@ models:
           - relationships:
               field: customer_id
               to: ref('stg_customers')
+
+sources:
+  - name: jaffle_shop
+    database: dbt-tutorial
+    description: Schema with shop data
+    schema: jaffle_shop
+    tables:
+      - name: orders
+        description: Orders raw data
+        loaded_at_field: loaded_at
+        freshness: 
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+        
+
+      - name: customers
+        description: Customers raw data

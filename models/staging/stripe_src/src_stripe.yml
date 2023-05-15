@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: stripe
-    database: 'my_lovely_db'
+    database: 'dbt-tutorial'
     description: Schema with payments details
     schema: stripe
     tables:
